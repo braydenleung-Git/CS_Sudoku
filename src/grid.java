@@ -76,7 +76,7 @@ public class grid {
 
     /**
      * This method converts an int 2D Array to a readable location class object grid
-     * @param array
+     * @param array expected array
      */
     public void arrayToGrid(int[][] array){
         for (int i = 0; i < 9; i++) {
@@ -116,10 +116,5 @@ public class grid {
                 }
             }
         }
-    }
-
-
-    public void arrayToGrid(int[][]){
-
     }
 }
