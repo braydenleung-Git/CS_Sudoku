@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46a93401-f3bc-445e-a668-0b6565c3497b" name="Changes" comment="Fully redid the sudokuMaps.json, code cleanup on grid.java" />
+    <list default="true" id="46a93401-f3bc-445e-a668-0b6565c3497b" name="Changes" comment="Fully redid the sudokuMaps.json, code cleanup on grid.java">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,6 +71,11 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
+  <component name="Push.Settings">
+    <force-push-targets>
+      <force-push-target remote-path="origin" branch="Brayden" />
+    </force-push-targets>
+  </component>
   <component name="RunManager">
     <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main" />
@@ -220,6 +227,7 @@
     <MESSAGE value="Added more maps to the json file" />
     <MESSAGE value="created arrayToGrid(), and added sampleGrid1" />
     <MESSAGE value="Fully redid the sudokuMaps.json, code cleanup on grid.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fully redid the sudokuMaps.json, code cleanup on grid.java" />
+    <MESSAGE value="updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates" />
   </component>
 </project>
