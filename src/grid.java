@@ -3,12 +3,12 @@ public class grid {
 
     private final int colSize = 9; //column size
     private final int rowSize = 9; //row size
-    location[][] mainGrid = new location[colSize][rowSize];
+    location[][] gameGrid = new location[colSize][rowSize];
 
     public grid(){
         for (int i = 0; i < rowSize; i++) {
             for (int j = 0; j < colSize; j++) {
-                mainGrid[i][j] = new location();
+                gameGrid[i][j] = new location();
             }
         }
     }
@@ -31,7 +31,7 @@ public class grid {
      * @param coords The coordinate of the location to be marked
      */
     public void mark(coordinate coords){
-        location object = mainGrid[coords.getVerticalCoordinate()][coords.getHorizontalCoordinate()];
+        location object = gameGrid[coords.getVerticalCoordinate()][coords.getHorizontalCoordinate()];
         coordinate markCoords;
         System.out.println(object.markGridToString());
         String input;
@@ -68,8 +68,20 @@ public class grid {
                 interfacing.readLine("Invalid input, please try again [Enter]");
             }
             else{
-                mainGrid[coords.getVerticalCoordinate()][coords.getHorizontalCoordinate()].setInt(input);
+                gameGrid[coords.getVerticalCoordinate()][coords.getHorizontalCoordinate()].setInt(input);
                 break;
+            }
+        }
+    }
+
+    /**
+     * This method converts an int 2D Array to a readable location class object grid
+     * @param array
+     */
+    public void arrayToGrid(int[][] array){
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                gameGrid[i][j].setInt(array[i][j]);
             }
         }
     }
@@ -95,7 +107,7 @@ public class grid {
             System.out.println();
             System.out.print((char)(65+vert)+ " ");
             for (int hori = 0; hori < colSize; hori++) {
-                current = mainGrid[vert][hori].getInt();
+                current = gameGrid[vert][hori].getInt();
                 if(current == 0){
                     System.out.print("  ");
                 }
@@ -104,5 +116,10 @@ public class grid {
                 }
             }
         }
+    }
+
+
+    public void arrayToGrid(int[][]){
+
     }
 }

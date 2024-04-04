@@ -6,12 +6,12 @@ public class interfacing {
     /**
      * This method takes in an input, and the format of the expected input, and returns whether it is in the correct format or not
      * This is currently marked as not working, as another solution is available
+     *
      * @param input user input
      * @param format expected format
      * @return
      */
     private static boolean validateInput(String input, int format){
-
         return false;
     }
     public static String readLine(String prompt) {
