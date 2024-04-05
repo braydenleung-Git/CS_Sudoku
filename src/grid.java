@@ -2,7 +2,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Random;
 
-import com.fasterxml.jackson.core.*;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -11,7 +10,7 @@ public class grid {
     private final int colSize = 9; //column size
     private final int rowSize = 9; //row size
 
-    private final File map = new File("sudokuMaps.json");
+    public final static File map = new File("./src/sudokuMaps.json");
     location[][] gameGrid = new location[colSize][rowSize];
     location[][] puzzleGrid = new location[colSize][rowSize];
 
@@ -34,10 +33,10 @@ public class grid {
 
     /**
      * This method is used to mark a specific location on the main grid
-     * @param coords The coordinate of the location to be marked
+     * @param cords The coordinate of the location to be marked
      */
-    public void mark(coordinate coords){
-        location object = gameGrid[coords.getVerticalCoordinate()][coords.getHorizontalCoordinate()];
+    public void mark(coordinate cords){
+        location object = gameGrid[cords.getVerticalCoordinate()][cords.getHorizontalCoordinate()];
         coordinate markCoords;
         System.out.println(object.markGridToString());
         String input;
@@ -67,7 +66,7 @@ public class grid {
         interfacing.readLine("[Enter]");
     }
 
-    public void setNum(coordinate coords){
+    public void setNum(coordinate cords){
         int input;
         while(true){
             input = interfacing.readInt("Insert number that you would like to set: ");
@@ -75,7 +74,7 @@ public class grid {
                 interfacing.readLine("Invalid input, please try again [Enter]");
             }
             else{
-                gameGrid[coords.getVerticalCoordinate()][coords.getHorizontalCoordinate()].setInt(input);
+                gameGrid[cords.getVerticalCoordinate()][cords.getHorizontalCoordinate()].setInt(input);
                 break;
             }
         }
@@ -95,67 +94,42 @@ public class grid {
     }
 
     /**
-     * This method is used to select the type of puzzle based on the difficulty
+     * This method is an overload method to difficultySelect()
      * @param difficulty expected difficulty
      * @return selected puzzle in a form of 2D int Array
      */
-    public int[][] difficultySelect(String difficulty){
-        int[][] output = new int[9][9];
-        JsonNode selectedNode = null;
-        ObjectMapper objectMapper = new ObjectMapper();
-        try{
-            JsonNode rootNode = objectMapper.readTree(map);
-            for (JsonNode difficultyNode : rootNode) {
-                //if the current difficulty node is what we are looking for, then select the corresponding "Puzzle" node
-                if(difficultyNode.get("Difficulty").asText().equals(difficulty)){
-                    selectedNode = difficultyNode.get("Puzzle");
-                    break;
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        selectedNode= selectedNode.get(new Random().nextInt(selectedNode.size()));
-        try{
-            for (int i = 0; i < 9; i++) {
-                int[] row = objectMapper.treeToValue(selectedNode.get(String.valueOf(i)),int[].class);
-                System.arraycopy(row, 0, output[i], 0, 9);//cleanest line ever, i did not even know this method exist
-            }
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
-        return output;
+    public static int[][] difficultySelect(String difficulty){
+        return difficultySelect(difficulty,0);
     }
 
     /**
-     * This method is an overload method to difficultySelect()
+     * This method is used to select the type of puzzle based on the difficulty, and
      * @param difficulty expected difficulty
      * @param puzzleID puzzleID
      * @return selected puzzle in a form of 2D int Array
      */
-    public int[][] difficultySelect(String difficulty, int puzzleID){
+    public static int[][] difficultySelect(String difficulty, int puzzleID){
         int[][] output = new int[9][9];
-        JsonNode selectedNode = null;
-        ObjectMapper objectMapper = new ObjectMapper();
-        try{
-            JsonNode rootNode = objectMapper.readTree(map);
+        try {
+            JsonNode rootNode = new ObjectMapper().readTree(map);
             for (JsonNode difficultyNode : rootNode) {
                 //if the current difficulty node is what we are looking for, then select the corresponding "Puzzle" node
-                if(difficultyNode.get("Difficulty").asText().equals(difficulty)){
-                    selectedNode = difficultyNode.get("Puzzle");
+                if (difficultyNode.get("Difficulty").asText().equals(difficulty)) {
+                    JsonNode selectedNode = difficultyNode.get("Puzzle");
+                    if(puzzleID == 0){
+                        int randomID = 1 + new Random().nextInt(selectedNode.size());
+                        selectedNode = selectedNode.get(Integer.toString(randomID));
+                    } else {
+                        selectedNode = selectedNode.get(Integer.toString(puzzleID));
+                    }
+                    for (int i = 1; i <= 9; i++) {
+                        int[] row = new ObjectMapper().treeToValue(selectedNode.get(String.valueOf(i)), int[].class);
+                        System.arraycopy(row, 0, output[i-1], 0, 9);//cleanest line ever, i did not even know this method exist
+                    }
                     break;
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
-        }
-        selectedNode= selectedNode.get(puzzleID-1);
-        try{
-            for (int i = 0; i < 9; i++) {
-                int[] row = objectMapper.treeToValue(selectedNode.get(String.valueOf(i)),int[].class);
-                System.arraycopy(row, 0, output[i], 0, 9);//cleanest line ever, i did not even know this method exist
-            }
-        } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
         return output;
@@ -164,6 +138,7 @@ public class grid {
     public location[][] getGameGrid(){
         return gameGrid;
     }
+
     public void resetGrid(){
         for (int i = 0; i < 9; i++) {
             System.arraycopy(puzzleGrid[i],0,gameGrid[i],0,9);
@@ -188,5 +163,6 @@ public class grid {
                 }
             }
         }
+        System.out.println();
     }
 }

@@ -15,6 +15,52 @@ public class main {
         };
         testGrid.arrayToGrid(sampleGrid1);
 
+        grid jsonTest = new grid();
+        System.out.println("Easy");
+        jsonTest.arrayToGrid(grid.difficultySelect("Easy",1));
+        jsonTest.printGrid();
+        System.out.println();
+        jsonTest.arrayToGrid(grid.difficultySelect("Easy",2));
+        jsonTest.printGrid();
+        System.out.println();
+        jsonTest.arrayToGrid(grid.difficultySelect("Easy",3));
+        jsonTest.printGrid();
+        System.out.println();
+        jsonTest.arrayToGrid(grid.difficultySelect("Easy"));//Random for "Easy"
+        jsonTest.printGrid();
+        System.out.println();
+        System.out.println();
+
+        System.out.println("Medium");
+        jsonTest.arrayToGrid(grid.difficultySelect("Medium",1));
+        jsonTest.printGrid();
+        System.out.println();
+        jsonTest.arrayToGrid(grid.difficultySelect("Medium",2));
+        jsonTest.printGrid();
+        System.out.println();
+        jsonTest.arrayToGrid(grid.difficultySelect("Medium",3));
+        jsonTest.printGrid();
+        System.out.println();
+        jsonTest.arrayToGrid(grid.difficultySelect("Medium"));//Random for "Medium"
+        jsonTest.printGrid();
+        System.out.println();
+        System.out.println();
+
+        System.out.println("Hard");
+        jsonTest.arrayToGrid(grid.difficultySelect("Hard",1));
+        jsonTest.printGrid();
+        System.out.println();
+        jsonTest.arrayToGrid(grid.difficultySelect("Hard",2));
+        jsonTest.printGrid();
+        System.out.println();
+        jsonTest.arrayToGrid(grid.difficultySelect("Hard",3));
+        jsonTest.printGrid();
+        System.out.println();
+        jsonTest.arrayToGrid(grid.difficultySelect("Hard")); //Random for "Hard"
+        jsonTest.printGrid();
+        System.out.println();
+
+
         /* Expected order of operations:
         Start menu
         smth
