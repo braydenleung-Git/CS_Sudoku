@@ -23,19 +23,14 @@ public class grid {
             }
         }
     }
-    /*
-    Start menu
-    smth
-    flush
-    print grid
-    action options
-    action prompt(mark, set, remove)
-    set location
-    check grid
-    flush
-    cycle if not finished
-    end menu
-    */
+    /**
+     * dependency: string input must be valid
+     * @param input user input
+     * @return interpreted coordinate
+     */
+    public coordinate stringToCoordinate(String input){
+        return new coordinate(65-input.charAt(0),Character.getNumericValue(input.charAt(1)));
+    }
 
     /**
      * This method is used to mark a specific location on the main grid
@@ -71,6 +66,7 @@ public class grid {
         System.out.println(object.markGridToString());
         interfacing.readLine("[Enter]");
     }
+
     public void setNum(coordinate coords){
         int input;
         while(true){
@@ -86,7 +82,7 @@ public class grid {
     }
 
     /**
-     * This method converts an int 2D Array to a readable location class object grid
+     * This method converts an int 2D Array to a location class object grid
      * @param array expected array
      */
     public void arrayToGrid(int[][] array){
@@ -101,7 +97,7 @@ public class grid {
     /**
      * This method is used to select the type of puzzle based on the difficulty
      * @param difficulty expected difficulty
-     * @return
+     * @return selected puzzle in a form of 2D int Array
      */
     public int[][] difficultySelect(String difficulty){
         int[][] output = new int[9][9];
@@ -110,7 +106,7 @@ public class grid {
         try{
             JsonNode rootNode = objectMapper.readTree(map);
             for (JsonNode difficultyNode : rootNode) {
-                //if the current difficulty node is what we are looking for, then select the corrisponding "Puzzle" node
+                //if the current difficulty node is what we are looking for, then select the corresponding "Puzzle" node
                 if(difficultyNode.get("Difficulty").asText().equals(difficulty)){
                     selectedNode = difficultyNode.get("Puzzle");
                     break;
@@ -132,10 +128,10 @@ public class grid {
     }
 
     /**
-     * This method is an overload method to difficultySelect
-     * @param difficulty
-     * @param puzzleID
-     * @return
+     * This method is an overload method to difficultySelect()
+     * @param difficulty expected difficulty
+     * @param puzzleID puzzleID
+     * @return selected puzzle in a form of 2D int Array
      */
     public int[][] difficultySelect(String difficulty, int puzzleID){
         int[][] output = new int[9][9];
@@ -144,7 +140,7 @@ public class grid {
         try{
             JsonNode rootNode = objectMapper.readTree(map);
             for (JsonNode difficultyNode : rootNode) {
-                //if the current difficulty node is what we are looking for, then select the corrisponding "Puzzle" node
+                //if the current difficulty node is what we are looking for, then select the corresponding "Puzzle" node
                 if(difficultyNode.get("Difficulty").asText().equals(difficulty)){
                     selectedNode = difficultyNode.get("Puzzle");
                     break;
@@ -192,13 +188,5 @@ public class grid {
                 }
             }
         }
-    }
-    /**
-     * dependency: string input must be valid
-     * @param input
-     * @return
-     */
-    public coordinate stringToCoordinate(String input){
-        return new coordinate(65-input.charAt(0),Character.getNumericValue(input.charAt(1)));
     }
 }

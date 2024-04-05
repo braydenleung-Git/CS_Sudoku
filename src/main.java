@@ -14,6 +14,20 @@ public class main {
             {7, 6, 3, 4, 1, 8, 2, 5, 9}
         };
         testGrid.arrayToGrid(sampleGrid1);
+
+        /* Expected order of operations:
+        Start menu
+        smth
+        flush
+        print grid
+        action options
+        action prompt(mark, set, remove)
+        set location
+        check grid
+        flush
+        cycle if not finished
+        end menu
+        */
     }
 }
 

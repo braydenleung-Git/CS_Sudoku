@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46a93401-f3bc-445e-a668-0b6565c3497b" name="Changes" comment="Attempt to create a json to int array method">
-      <changelist_data name="braydenleung-Git" email="brayden.leung@gmail.com" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/fasterxml_jackson_core.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/fasterxml_jackson_core_databind.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/jackson-annotations-2.13.3-javadoc.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/jackson-annotations-2.13.3.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/jackson-core-2.13.3-javadoc.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/jackson-core-2.13.3-sources.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/jackson-core-2.13.3.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/jackson-databind-2.13.3-javadoc.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/jackson-databind-2.13.3.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GPT_Examples" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CS_Sudoku.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CS_Sudoku.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grid.java" afterDir="false" />
-    </list>
+    <list default="true" id="46a93401-f3bc-445e-a668-0b6565c3497b" name="Changes" comment="code clean up, fully implemented difficultySelect Method" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,6 +44,9 @@
     &quot;accountId&quot;: &quot;640a5d1e-403f-4527-934c-6f743b04f3b2&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/grid.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -237,7 +225,23 @@
       <option name="project" value="LOCAL" />
       <updated>1712276497103</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="imported Jackson library, workspace updates">
+      <option name="closed" value="true" />
+      <created>1712283435613</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1712283435613</updated>
+    </task>
+    <task id="LOCAL-00017" summary="code clean up, fully implemented difficultySelect Method">
+      <option name="closed" value="true" />
+      <created>1712283460567</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1712283460567</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -267,6 +271,8 @@
     <MESSAGE value="updated IDE" />
     <MESSAGE value="ide file updates" />
     <MESSAGE value="Attempt to create a json to int array method" />
-    <option name="LAST_COMMIT_MESSAGE" value="Attempt to create a json to int array method" />
+    <MESSAGE value="imported Jackson library, workspace updates" />
+    <MESSAGE value="code clean up, fully implemented difficultySelect Method" />
+    <option name="LAST_COMMIT_MESSAGE" value="code clean up, fully implemented difficultySelect Method" />
   </component>
 </project>
