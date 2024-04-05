@@ -29,5 +29,5 @@ bin/
 .DS_Store
 
 ## External ###
-/.idea/workspace.xml
+#/.idea/workspace.xml
 /.idea/discord.xml
