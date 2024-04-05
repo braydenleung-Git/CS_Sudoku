@@ -1,8 +1,6 @@
 import java.util.Scanner;
 
 public class interfacing {
-
-
     /**
      * This method takes in an input, and the format of the expected input, and returns whether it is in the correct format or not
      * This is currently marked as not working, as another solution is available

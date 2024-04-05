@@ -6,10 +6,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class grid {
-
     private final int colSize = 9; //column size
     private final int rowSize = 9; //row size
-
     public final static File map = new File("./src/sudokuMaps.json");
     location[][] gameGrid = new location[colSize][rowSize];
     location[][] puzzleGrid = new location[colSize][rowSize];
@@ -22,6 +20,7 @@ public class grid {
             }
         }
     }
+
     /**
      * dependency: string input must be valid
      * @param input user input
@@ -29,6 +28,20 @@ public class grid {
      */
     public coordinate stringToCoordinate(String input){
         return new coordinate(65-input.charAt(0),Character.getNumericValue(input.charAt(1))-1);
+    }
+
+    public void setNum(coordinate cords){
+        int input;
+        while(true){
+            input = interfacing.readInt("Insert number that you would like to set: ");
+            if(input>9 || input < 0){
+                interfacing.readLine("Invalid input, please try again [Enter]");
+            }
+            else{
+                gameGrid[cords.getVerticalCoordinate()][cords.getHorizontalCoordinate()].setInt(input);
+                break;
+            }
+        }
     }
 
     /**
@@ -66,25 +79,11 @@ public class grid {
         interfacing.readLine("[Enter]");
     }
 
-    public void setNum(coordinate cords){
-        int input;
-        while(true){
-            input = interfacing.readInt("Insert number that you would like to set: ");
-            if(input>9 || input < 0){
-                interfacing.readLine("Invalid input, please try again [Enter]");
-            }
-            else{
-                gameGrid[cords.getVerticalCoordinate()][cords.getHorizontalCoordinate()].setInt(input);
-                break;
-            }
-        }
-    }
-
     /**
      * This method converts an int 2D Array to a location class object grid
      * @param array expected array
      */
-    public void arrayToGrid(int[][] array){
+    private void arrayToGrid(int[][] array){
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 gameGrid[i][j].setInt(array[i][j]);
@@ -96,19 +95,17 @@ public class grid {
     /**
      * This method is an overload method to difficultySelect()
      * @param difficulty expected difficulty
-     * @return selected puzzle in a form of 2D int Array
      */
-    public static int[][] difficultySelect(String difficulty){
-        return difficultySelect(difficulty,0);
+    public void difficultySelect(String difficulty){
+        difficultySelect(difficulty,0);
     }
 
     /**
      * This method is used to select the type of puzzle based on the difficulty, and
      * @param difficulty expected difficulty
      * @param puzzleID puzzleID
-     * @return selected puzzle in a form of 2D int Array
      */
-    public static int[][] difficultySelect(String difficulty, int puzzleID){
+    public void difficultySelect(String difficulty, int puzzleID){
         int[][] output = new int[9][9];
         try {
             JsonNode rootNode = new ObjectMapper().readTree(map);
@@ -132,11 +129,15 @@ public class grid {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return output;
+        arrayToGrid(output);
     }
-
+    //getting methods
     public location[][] getGameGrid(){
         return gameGrid;
+    }
+
+    public location[][] getPuzzleGrid(){
+        return puzzleGrid;
     }
 
     public void resetGrid(){
@@ -144,6 +145,7 @@ public class grid {
             System.arraycopy(puzzleGrid[i],0,gameGrid[i],0,9);
         }
     }
+
     public void printGrid(){
         System.out.print(" ");
         int current;
