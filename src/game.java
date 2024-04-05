@@ -1,4 +1,4 @@
-public class game {
+public class main {
     public static void main(String[] args) {
         grid testGrid = new grid();
         //testGrid.printGrid();
@@ -15,6 +15,20 @@ public class game {
         };
         testGrid.arrayToGrid(sampleGrid1);
         gcheck.parser(testGrid.gameGrid);
+        /* Expected order of operations:
+        Start menu
+        smth
+        flush
+        print grid
+        action options
+        action prompt(mark, set, remove)
+        set location
+        check grid
+        flush
+        cycle if not finished
+        end menu
+        */
+
     }
 }
 

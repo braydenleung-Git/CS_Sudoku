@@ -4,12 +4,15 @@ public class location {
     public void setMarkGrid(int v, int h,int input){
         this.markGrid[v][h] = input;
     }
+
     public int getInt(){
         return value;
     }
+
     public void setInt(int value){
         this.value = value;
     }
+
     public String markGridToString(){
         String output = " 1 2 3\n";
         for (int i = 0; i < 3; i++) {

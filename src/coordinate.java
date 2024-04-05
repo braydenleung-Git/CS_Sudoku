@@ -1,9 +1,7 @@
-/*
-* This class is used as a pass-through for data that cannot be easily pass through the primitive return types,
-* and such, the instances of this class can instantiate to pass down that information
-
-*/
-
+/**
+ * This class is used as a pass-through for data that cannot be easily pass through the primitive return types,
+ * and such, the instances of this class can instantiate to pass down that information
+ */
 public class coordinate {
     private int verticalCoordinate = 0;
     private int horizontalCoordinate = 0;
