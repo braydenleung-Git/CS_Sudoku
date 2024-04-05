@@ -11,9 +11,25 @@ public class interfacing {
      * @param format expected format
      * @return
      */
-    private static boolean validateInput(String input, int format){
+    public static boolean validateInput(String input, int format){
+        if (format == 0){
+            if (input.length() > 2){
+                System.out.println("Input is too long");
+                return false;
+            }
+            //CALL THE GETVERT OR GETHOR METHODS
+        }
+        else if (format == 1){
+            char[] expected = {'q', 'r','s','d'};
+            for (int i = 0; i < expected.length; i++) {
+                if (input.charAt(0) == expected[i]){
+                    return true;
+                }
+            }
+        }
         return false;
     }
+
     public static String readLine(String prompt) {
         Scanner obj = new Scanner(System.in);
         System.out.print(prompt);
