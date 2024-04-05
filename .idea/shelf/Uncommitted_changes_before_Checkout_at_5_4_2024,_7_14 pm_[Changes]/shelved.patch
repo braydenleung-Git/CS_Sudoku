@@ -1,0 +1,16 @@
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>### IntelliJ IDEA ###\nout/\n!**/src/main/**/out/\n!**/src/test/**/out/\n\n### Eclipse ###\n.apt_generated\n.classpath\n.factorypath\n.project\n.settings\n.springBeans\n\n.sts4-cache\nbin/\n!**/src/main/**/bin/\n!**/src/test/**/bin/\n### NetBeans ###\n/nbproject/private/\n/nbbuild/\n/dist/\n/nbdist/\n/.nb-gradle/\n\n### VS Code ###\n.vscode/\n\n### Mac OS ###\n.DS_Store\n\n## External ###\n#/.idea/workspace.xml\n/.idea/discord.xml\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.gitignore b/.gitignore
+--- a/.gitignore	(revision f5287d5d459e44208e2b4a18c66941b02ae47043)
++++ b/.gitignore	(date 1712358879596)
+@@ -29,5 +29,4 @@
+ .DS_Store
+ 
+ ## External ###
+-#/.idea/workspace.xml
+ /.idea/discord.xml
