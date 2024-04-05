@@ -1,7 +1,7 @@
-public class main {
+public class game {
     public static void main(String[] args) {
         grid testGrid = new grid();
-        testGrid.printGrid();
+        //testGrid.printGrid();
         int[][] sampleGrid1 = {
             {4, 3, 5, 2, 6, 9, 7, 8, 1},
             {6, 8, 2, 5, 7, 1, 4, 9, 3},
@@ -14,6 +14,7 @@ public class main {
             {7, 6, 3, 4, 1, 8, 2, 5, 9}
         };
         testGrid.arrayToGrid(sampleGrid1);
+        gcheck.parser(testGrid.gameGrid);
     }
 }
 

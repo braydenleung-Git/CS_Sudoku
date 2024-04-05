@@ -3,7 +3,7 @@ public class grid {
 
     private final int colSize = 9; //column size
     private final int rowSize = 9; //row size
-    location[][] gameGrid = new location[colSize][rowSize];
+    public location[][] gameGrid = new location[colSize][rowSize];
 
     public grid(){
         for (int i = 0; i < rowSize; i++) {
