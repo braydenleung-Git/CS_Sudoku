@@ -29,4 +29,9 @@ public class interfacing {
             }
         }
     }
+    public static void flush() {
+        for (int i = 0; i < 50; i++) {
+            System.out.println();
+        }
+    }
 }

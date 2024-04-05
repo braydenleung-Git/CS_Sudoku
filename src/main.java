@@ -14,7 +14,15 @@ public class main {
             {7, 6, 3, 4, 1, 8, 2, 5, 9}
         };
         testGrid.arrayToGrid(sampleGrid1);
-        gcheck.parser(testGrid.gameGrid);
+        if (!gcheck.parser(testGrid.gameGrid)){
+            System.out.println("Invalid grid");
+        }
+        else{
+            System.out.println("Valid grid");
+        }
+
+
+
         /* Expected order of operations:
         Start menu
         smth
