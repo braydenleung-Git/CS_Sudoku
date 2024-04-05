@@ -28,7 +28,7 @@ public class grid {
      * @return interpreted coordinate
      */
     public coordinate stringToCoordinate(String input){
-        return new coordinate(65-input.charAt(0),Character.getNumericValue(input.charAt(1)));
+        return new coordinate(65-input.charAt(0),Character.getNumericValue(input.charAt(1))-1);
     }
 
     /**
@@ -52,11 +52,11 @@ public class grid {
         }
         while (true){
             input = interfacing.readLine("Insert number that you would like to mark: ");
-            if(Integer.getInteger(input)>9 || Integer.getInteger(input)<0){
+            if(Integer.parseInt(input)>9 || Integer.parseInt(input)<0){
                 interfacing.readLine("Invalid input, please try again [Enter]");
             }
             else{
-                object.setMarkGrid(markCoords.getVerticalCoordinate(), markCoords.getHorizontalCoordinate(), Integer.getInteger(input));
+                object.setMarkGrid(markCoords.getVerticalCoordinate(), markCoords.getHorizontalCoordinate(), Integer.parseInt(input));
                 break;
             }
         }

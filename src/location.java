@@ -14,9 +14,9 @@ public class location {
     }
 
     public String markGridToString(){
-        String output = " 1 2 3\n";
+        String output = "  1 2 3\n";
         for (int i = 0; i < 3; i++) {
-            output += (char)65+i + " ";
+            output +=  (char)(65+i) + " ";
             for (int j = 0; j < 3; j++) {
                 output += markGrid[i][j]+" ";
             }
