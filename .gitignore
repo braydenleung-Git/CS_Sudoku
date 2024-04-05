@@ -10,11 +10,11 @@ out/
 .project
 .settings
 .springBeans
+
 .sts4-cache
 bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
-
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
@@ -29,3 +29,4 @@ bin/
 .DS_Store
 
 ## External ###
+
