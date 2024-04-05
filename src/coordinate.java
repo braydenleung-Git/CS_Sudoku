@@ -1,11 +1,25 @@
 /**
- * This class is used as a pass-through for data that cannot be easily pass through the primitive return types,
- * and such, the instances of this class can instantiate to pass down that information
+ * This class is used as a pass-through for coordinate on a grid, such that increasing readability, and ease of implementing coordinate to other classes
+ *
+ * All coordinate defined has to be compliant to the index that the array is set to
  */
 public class coordinate {
-    private int verticalCoordinate = 0;
-    private int horizontalCoordinate = 0;
+    private int verticalCoordinate;
+    private int horizontalCoordinate;
 
+    /**
+     * This is the overload constructor method
+     */
+    public coordinate(){
+        verticalCoordinate = 0;
+        horizontalCoordinate = 0;
+    }
+
+    /**
+     * This is the default constructor method for coordinate objects
+     * @param verticalCoordinate vertical coordinate
+     * @param horizontalCoordinate horizontal coordinate
+     */
     public coordinate(int verticalCoordinate, int horizontalCoordinate){
         this.verticalCoordinate = verticalCoordinate;
         this.horizontalCoordinate = horizontalCoordinate;
