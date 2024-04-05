@@ -1,264 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="46a93401-f3bc-445e-a668-0b6565c3497b" name="Changes" comment="code cleanup, ide update">
+    <list default="true" id="8de6572d-b69c-45ee-b021-e0cffffe6e5b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/jackson-annotations-2.13.3-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jackson-databind-2.13.3-sources.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/discord.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/fasterxml_jackson_core.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/fasterxml_jackson_core_databind.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CS_Sudoku.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CS_Sudoku.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gcheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gcheck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfacing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/interfacing.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true" />
-    <option name="PREVIOUS_COMMIT_AUTHORS">
-      <list>
-        <option value="braydenleung-Git &lt;brayden.leung@gmail.com&gt;" />
-      </list>
-    </option>
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="Titus" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;braydenleung-Git&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/braydenleung-Git/CS_Sudoku.git&quot;,
-    &quot;accountId&quot;: &quot;640a5d1e-403f-4527-934c-6f743b04f3b2&quot;
-  }
-}</component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/grid.java" root0="FORCE_HIGHLIGHTING" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 7
-}</component>
-  <component name="ProjectId" id="2eFIumpYdE5ky1gLwyzTu0rOmoy" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="2egTpGDE49GdSBpyyK5Vbesn2pg" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
     "Application.main.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "true",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "true",
-    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Titus",
     "kotlin-language-version-configured": "true",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15429688",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
+    "last_opened_file_path": "/home/titus/Downloads",
+    "settings.editor.selected.configurable": "vcs.Git"
   }
 }]]></component>
-  <component name="Push.Settings">
-    <force-push-targets>
-      <force-push-target remote-path="origin" branch="Brayden" />
-    </force-push-targets>
-  </component>
-  <component name="RunManager">
-    <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main" />
-      <module name="CS_Sudoku" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.main" />
-        <item itemvalue="Application.main" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="46a93401-f3bc-445e-a668-0b6565c3497b" name="Changes" comment="" />
-      <created>1711494123594</created>
+      <changelist id="8de6572d-b69c-45ee-b021-e0cffffe6e5b" name="Changes" comment="" />
+      <created>1712325405103</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1711494123594</updated>
+      <updated>1712325405103</updated>
     </task>
-    <task id="LOCAL-00001" summary="created calss files">
-      <option name="closed" value="true" />
-      <created>1711591698267</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1711591698268</updated>
-    </task>
-    <task id="LOCAL-00002" summary="created location.java and print grind methods">
-      <option name="closed" value="true" />
-      <created>1711641685469</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1711641685469</updated>
-    </task>
-    <task id="LOCAL-00003" summary="updates.. apparently">
-      <option name="closed" value="true" />
-      <created>1711759417902</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1711759417902</updated>
-    </task>
-    <task id="LOCAL-00004" summary="updated printGrid(), created coordinate class, mark(),setNum()">
-      <option name="closed" value="true" />
-      <created>1711854499337</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1711854499337</updated>
-    </task>
-    <task id="LOCAL-00005" summary="updated git ignore">
-      <option name="closed" value="true" />
-      <created>1712068738796</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1712068738796</updated>
-    </task>
-    <task id="LOCAL-00006" summary="updated git ignore">
-      <option name="closed" value="true" />
-      <created>1712068782440</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1712068782440</updated>
-    </task>
-    <task id="LOCAL-00007" summary="updated git ignore">
-      <option name="closed" value="true" />
-      <created>1712068810839</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1712068810839</updated>
-    </task>
-    <task id="LOCAL-00008" summary="created sudokuMaps.json, uploaded the reference maps">
-      <option name="closed" value="true" />
-      <created>1712077291987</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1712077291987</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Added more maps to the json file">
-      <option name="closed" value="true" />
-      <created>1712097238936</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1712097238936</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Added more maps to the json file">
-      <option name="closed" value="true" />
-      <created>1712097244513</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1712097244513</updated>
-    </task>
-    <task id="LOCAL-00011" summary="created arrayToGrid(), and added sampleGrid1">
-      <option name="closed" value="true" />
-      <created>1712192874876</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1712192874876</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Fully redid the sudokuMaps.json, code cleanup on grid.java">
-      <option name="closed" value="true" />
-      <created>1712196369229</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1712196369229</updated>
-    </task>
-    <task id="LOCAL-00013" summary="fixing idea xmls">
-      <option name="closed" value="true" />
-      <created>1712241498186</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1712241498186</updated>
-    </task>
-    <task id="LOCAL-00014" summary="ide file updates">
-      <option name="closed" value="true" />
-      <created>1712276474693</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1712276474693</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Attempt to create a json to int array method">
-      <option name="closed" value="true" />
-      <created>1712276497103</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1712276497103</updated>
-    </task>
-    <task id="LOCAL-00016" summary="imported Jackson library, workspace updates">
-      <option name="closed" value="true" />
-      <created>1712283435613</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1712283435613</updated>
-    </task>
-    <task id="LOCAL-00017" summary="code clean up, fully implemented difficultySelect Method">
-      <option name="closed" value="true" />
-      <created>1712283460567</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1712283460567</updated>
-    </task>
-    <task id="LOCAL-00018" summary="code cleanup, ide update">
-      <option name="closed" value="true" />
-      <created>1712284138891</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1712284138891</updated>
-    </task>
-    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -271,26 +60,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="created calss files" />
-    <MESSAGE value="created location.java and print grind methods" />
-    <MESSAGE value="updates.. apparently" />
-    <MESSAGE value="updated printGrid(), created coordinate class, mark(),setNum()" />
-    <MESSAGE value="updated git ignore" />
-    <MESSAGE value="created sudokuMaps.json, uploaded the reference maps" />
-    <MESSAGE value="Added more maps to the json file" />
-    <MESSAGE value="created arrayToGrid(), and added sampleGrid1" />
-    <MESSAGE value="Fully redid the sudokuMaps.json, code cleanup on grid.java" />
-    <MESSAGE value="updates" />
-    <MESSAGE value="updated IDE" />
-    <MESSAGE value="ide file updates" />
-    <MESSAGE value="Attempt to create a json to int array method" />
-    <MESSAGE value="imported Jackson library, workspace updates" />
-    <MESSAGE value="code clean up, fully implemented difficultySelect Method" />
-    <MESSAGE value="code cleanup, ide update" />
-    <option name="LAST_COMMIT_MESSAGE" value="code cleanup, ide update" />
   </component>
 </project>
