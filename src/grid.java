@@ -93,7 +93,8 @@ public class grid {
     }
 
     /**
-     * This method is an overload method to difficultySelect()
+     * This method is an overload method to grid.difficultySelect()
+     * Available options: Hard, Medium, Easy, Solved
      * @param difficulty expected difficulty
      */
     public void difficultySelect(String difficulty){
@@ -101,7 +102,8 @@ public class grid {
     }
 
     /**
-     * This method is used to select the type of puzzle based on the difficulty, and
+     * This method is used to select the type of puzzle based on the difficulty.
+     * Available options: Hard, Medium, Easy, Solved
      * @param difficulty expected difficulty
      * @param puzzleID puzzleID
      */

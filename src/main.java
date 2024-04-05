@@ -22,7 +22,6 @@ public class main {
         testGrid.printGrid();
 
     }
-   
 
     private static void testJsonToGrid(){
         grid jsonTest = new grid();
