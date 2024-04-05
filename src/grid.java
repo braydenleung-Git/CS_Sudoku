@@ -1,4 +1,11 @@
 import java.io.File;
+import java.io.IOException;
+import java.util.Random;
+
+import com.fasterxml.jackson.core.*;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class grid {
 
     private final int colSize = 9; //column size
@@ -91,96 +98,80 @@ public class grid {
         }
     }
 
-
-    //This relies on a library that is not internal, suggest to find alt option
-    public int[][] jsonto2dArray(String difficulty){
-        String currentPuzzleLevel;
+    /**
+     * This method is used to select the type of puzzle based on the difficulty
+     * @param difficulty expected difficulty
+     * @return
+     */
+    public int[][] difficultySelect(String difficulty){
+        int[][] output = new int[9][9];
+        JsonNode selectedNode = null;
         ObjectMapper objectMapper = new ObjectMapper();
         try{
             JsonNode rootNode = objectMapper.readTree(map);
-            for(JsonNode puzzleLevel : rootNode){
-                 currentPuzzleLevel = puzzleLevel.get("Difficulty").asText();
-                 if(currentPuzzleLevel.equals(difficulty)){
-                     JsonNode puzzleNodes = puzzleLevel.get("Puzzle");
-
-                 }
-            }
-
-        }
-        return
-    }
-
-    /*
-    import com.fasterxml.jackson.databind.JsonNode;
-    import com.fasterxml.jackson.databind.ObjectMapper;
-
-    import java.io.File;
-    import java.io.IOException;
-
-    public class SudokuPuzzleReader {
-        public static void main(String[] args) {
-            // Load JSON file
-            File jsonFile = new File("puzzles.json");
-
-            // Parse JSON
-            ObjectMapper objectMapper = new ObjectMapper();
-            try {
-                JsonNode rootNode = objectMapper.readTree(jsonFile);
-
-                // Access puzzles
-                for (JsonNode puzzleNode : rootNode) {
-                    String puzzleName = puzzleNode.get("name").asText();
-                    JsonNode puzzleDataNode = puzzleNode.get("data");
-                    System.out.println("Puzzle: " + puzzleName);
-
-                    // Access individual rows in the puzzle
-                    for (int i = 1; i <= 9; i++) {
-                        String rowString = puzzleDataNode.get(String.valueOf(i)).asText();
-                        int[] row = parseRow(rowString);
-                        for (int j = 0; j < row.length; j++) {
-                            System.out.print(row[j] + " ");
-                        }
-                        System.out.println();
-                    }
-                    System.out.println();
+            for (JsonNode difficultyNode : rootNode) {
+                //if the current difficulty node is what we are looking for, then select the corrisponding "Puzzle" node
+                if(difficultyNode.get("Difficulty").asText().equals(difficulty)){
+                    selectedNode = difficultyNode.get("Puzzle");
+                    break;
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
-        // Method to parse a row string into an array of integers
-        private static int[] parseRow(String rowString) {
-            String[] tokens = rowString.split(",");
-            int[] row = new int[tokens.length];
-            for (int i = 0; i < tokens.length; i++) {
-                row[i] = Integer.parseInt(tokens[i].trim());
+        selectedNode= selectedNode.get(new Random().nextInt(selectedNode.size()));
+        try{
+            for (int i = 0; i < 9; i++) {
+                int[] row = objectMapper.treeToValue(selectedNode.get(String.valueOf(i)),int[].class);
+                System.arraycopy(row, 0, output[i], 0, 9);//cleanest line ever, i did not even know this method exist
             }
-            return row;
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
         }
+        return output;
     }
 
-    //Reference json
-    {
-      "name": "Easy 1",
-      "data": {
-        "1": [9,0,0,6,0,0,0,0,0],
-        "2": [0,8,0,0,3,2,1,5,9],
-        "3": [0,0,0,9,1,7,8,0,6],
-        "4": [0,7,0,0,6,0,0,2,1],
-        "5": [0,6,0,3,0,4,9,0,0],
-        "6": [5,3,0,0,2,0,6,0,7],
-        "7": [0,0,1,7,0,3,0,0,2],
-        "8": [0,0,6,5,0,1,4,0,0],
-        "9": [3,4,0,2,0,0,0,1,0]
-      }
+    /**
+     * This method is an overload method to difficultySelect
+     * @param difficulty
+     * @param puzzleID
+     * @return
+     */
+    public int[][] difficultySelect(String difficulty, int puzzleID){
+        int[][] output = new int[9][9];
+        JsonNode selectedNode = null;
+        ObjectMapper objectMapper = new ObjectMapper();
+        try{
+            JsonNode rootNode = objectMapper.readTree(map);
+            for (JsonNode difficultyNode : rootNode) {
+                //if the current difficulty node is what we are looking for, then select the corrisponding "Puzzle" node
+                if(difficultyNode.get("Difficulty").asText().equals(difficulty)){
+                    selectedNode = difficultyNode.get("Puzzle");
+                    break;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        selectedNode= selectedNode.get(puzzleID-1);
+        try{
+            for (int i = 0; i < 9; i++) {
+                int[] row = objectMapper.treeToValue(selectedNode.get(String.valueOf(i)),int[].class);
+                System.arraycopy(row, 0, output[i], 0, 9);//cleanest line ever, i did not even know this method exist
+            }
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+        return output;
     }
-    */
+
     public location[][] getGameGrid(){
         return gameGrid;
     }
     public void resetGrid(){
-    //might not implement
+        for (int i = 0; i < 9; i++) {
+            System.arraycopy(puzzleGrid[i],0,gameGrid[i],0,9);
+        }
     }
     public void printGrid(){
         System.out.print(" ");
