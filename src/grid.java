@@ -160,7 +160,7 @@ public class grid {
             for (int hori = 0; hori < colSize; hori++) {
                 current = gameGrid[vert][hori].getInt();
                 if(current == 0){
-                    System.out.print("  ");
+                    System.out.print("▢ ");
                 }
                 else{
                     System.out.print(current+" ");
