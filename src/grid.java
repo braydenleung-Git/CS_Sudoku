@@ -122,9 +122,9 @@ public class grid {
         }
     }
 
-    public static boolean validatePlacement(coordinate coords){
+    public static boolean validatePlacement(coordinate cords) {
         location[][] puzzle = getPuzzleGrid();
-        return puzzle[coords.getVerticalCoordinate()][coords.getHorizontalCoordinate()].getInt() == 0;
+        return puzzle[cords.getVerticalCoordinate()][cords.getHorizontalCoordinate()].getInt() == 0;
     }
 
     /**
