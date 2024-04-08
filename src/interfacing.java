@@ -7,9 +7,17 @@ public class interfacing {
         flush();
         System.out.println("Hello and welcome to the world of sudoku!");
         if (count > 0) {
-            input = readLine("Do you wish to skip the tutorial? [Y/N]",true);
-
-            //if user put smth else other than [y or n] it wont loop
+            while(true) {
+                input = readLine("Do you wish to skip the tutorial? [Y/N]", true);
+                if(validateInput(input,false)){
+                    if(!(input.equals("Y")||input.equals("N"))){
+                        readLine("Invalid input [Enter]");
+                    }
+                    else{
+                        break;
+                    }
+                }
+            }
         }
         if(input.equals("N") || count < 1){
             String prompt = "In this game, there is a 9x9 grid with some numbers already filled in and some that are empty.";
@@ -43,7 +51,7 @@ public class interfacing {
                             input = readLine("Which difficulty?",true);
                             int puzzleID = readInt("Which puzzle?");
                             while(puzzleID>3 || puzzleID < 0){
-                                readLine("Invalid input");
+                                readLine("Invalid input [Enter]");
                                 puzzleID = readInt("Which puzzle?",true);
                             }
                             switch(input.charAt(0)){
