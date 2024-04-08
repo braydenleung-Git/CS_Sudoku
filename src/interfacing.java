@@ -1,11 +1,8 @@
 import java.util.Scanner;
 
-
 public class interfacing {
-
-    static int count = 1;
+    static int count = 0;
     public static void introduction() {
-        Scanner s1 = new Scanner(System.in);
         String input = "";
         flush();
         System.out.println("Hello and welcome to the world of sudoku!");
@@ -39,7 +36,8 @@ public class interfacing {
             input = readLine("Please select the difficulty: ",true);
             if(validateInput(input,false)){
                 switch(input.charAt(0)){
-                    case 'T'://Test the program
+                    //Test the program
+                    case 'T':
                         int i = 1;
                         while(i == 1){
                             input = readLine("Which difficulty?",true);
@@ -107,8 +105,13 @@ public class interfacing {
                             grid.printGrid();
                             input = readLine("Place down the coordinate that you would like to set: ",true);
                             if(validateInput(input,true)){
-                                grid.setNum(grid.stringToCoordinate(input));
-                                break;
+                                if(grid.validatePlacement(grid.stringToCoordinate(input))){
+                                    grid.setNum(grid.stringToCoordinate(input));
+                                    break;
+                                }
+                                else{
+                                    readLine("Invalid placement, please try again. [Enter]");
+                                }
                             }
                         }
                         return 0;
@@ -129,7 +132,7 @@ public class interfacing {
                             input = readLine("Confirm quit?[Y/N] ");
                             if(validateInput(input,false)){
                                 if(input.charAt(0) == 'Y'){
-                                    main.replay = false;
+                                    game.replay = false;
                                     break;
                                 }
                                 else if(input.charAt(0) == 'N'){
@@ -147,10 +150,12 @@ public class interfacing {
                                 if (validateInput(input, false)) {
                                     switch (input.charAt(0)) {
                                         case 'Y':
-                                            main.replay = true;
+                                            game.replay = true;
+                                            count++;
                                             break;
                                         case 'N':
-                                            main.replay = false;
+                                            game.replay = false;
+                                            count++;
                                             return 1;
                                         default:
                                             readLine("Invalid input. [Enter]");

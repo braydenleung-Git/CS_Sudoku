@@ -1,6 +1,6 @@
 public class location {
     int value = 0;
-    int[][] markGrid = new int[3][3];
+    final int[][] markGrid = new int[3][3];
     public void setMarkGrid(int v, int h,int input){
         this.markGrid[v][h] = input;
     }

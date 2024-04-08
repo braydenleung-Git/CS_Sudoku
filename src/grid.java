@@ -9,8 +9,8 @@ public class grid {
     private static final int colSize = 9; //column size
     private static final int rowSize = 9; //row size
     public final static File map = new File("./src/sudokuMaps.json");
-    static location[][] gameGrid = new location[colSize][rowSize];
-    static location[][] puzzleGrid = new location[colSize][rowSize];
+    static final location[][] gameGrid = new location[colSize][rowSize];
+    static final location[][] puzzleGrid = new location[colSize][rowSize];
 
     /**
      * dependency: string input must be valid
@@ -37,49 +37,70 @@ public class grid {
     }
 
     /**
-     * This method is used to mark a specific location on the main grid
+     * This method is used to mark a specific location on the game grid
      * @param cords The coordinate of the location to be marked
      */
     public static void mark(coordinate cords){
         location object = gameGrid[cords.getVerticalCoordinate()][cords.getHorizontalCoordinate()];
         coordinate markCoords;
         String input;
-        while (true) {
-            System.out.println(object.markGridToString());
-            input = interfacing.readLine("Location of potential marking[e.g A1]: ",true);
-            if(interfacing.validateInput(input,true)){
-                if(Character.getNumericValue(input.charAt(1)) > 3||Character.getNumericValue(input.charAt(1))<0){
-                    interfacing.readLine("Input format invalid. [Enter]");
-                    interfacing.flush();
-                }
-                else{
-                    markCoords = stringToCoordinate(input);
-                    break;
-                }
-            }
-            else{
-                interfacing.flush();
-            }
-        }
-        while (true){
-            input = interfacing.readLine("Insert number that you would like to mark: ",true);
+        String prompt;
+        while(true) {
+            prompt = "[E]dit, [V]iew";
+            interfacing.uiLine(prompt);
+            System.out.println(prompt);
+            input = interfacing.readLine("Which Action would you like to proceed with? ");
             if(interfacing.validateInput(input,false)) {
-                if (!Character.isDigit(input.charAt(0)) ||Integer.parseInt(input) > 9 || Integer.parseInt(input) < 0) {
-                    interfacing.readLine("Invalid input, please try again [Enter]");
-                    interfacing.flush();
-                    System.out.println(object.markGridToString());
-                } else {
-                    object.setMarkGrid(markCoords.getVerticalCoordinate(), markCoords.getHorizontalCoordinate(), Integer.parseInt(input));
-                    break;
+                switch (input.charAt(0)) {
+                    case 'E':
+                        while (true) {
+                            System.out.println(object.markGridToString());
+                            input = interfacing.readLine("Location of potential marking[e.g A1]: ", true);
+                            if (interfacing.validateInput(input, true)) {
+                                if (Character.getNumericValue(input.charAt(1)) > 3 || Character.getNumericValue(input.charAt(1)) < 0) {
+                                    interfacing.readLine("Input format invalid. [Enter]");
+                                    interfacing.flush();
+                                } else {
+                                    markCoords = stringToCoordinate(input);
+                                    break;
+                                }
+                            } else {
+                                interfacing.flush();
+                            }
+                        }
+                        while (true) {
+                            input = interfacing.readLine("Insert number that you would like to mark: ", true);
+                            if (interfacing.validateInput(input, false)) {
+                                if (!Character.isDigit(input.charAt(0)) || Integer.parseInt(input) > 9 || Integer.parseInt(input) < 0) {
+                                    interfacing.readLine("Invalid input, please try again [Enter]");
+                                    interfacing.flush();
+                                    System.out.println(object.markGridToString());
+                                } else {
+                                    object.setMarkGrid(markCoords.getVerticalCoordinate(), markCoords.getHorizontalCoordinate(), Integer.parseInt(input));
+                                    break;
+                                }
+                            }
+                        }
+                        interfacing.flush();
+                        prompt = "You have marked on your grid, this is the current marking on this location: ";
+                        interfacing.uiLine(prompt);
+                        System.out.println(prompt);
+                        System.out.println(object.markGridToString());
+                        interfacing.readLine("Press [Enter] to continue.", true);
+                        break;
+                    case 'V':
+                        interfacing.flush();
+                        System.out.println(object.markGridToString());
+                        interfacing.readLine("Press [Enter] to continue.",true);
+                        break;
+                    default:
+                        interfacing.flush();
+                        interfacing.readLine("Invalid action, please try again [Enter]",true);
+                        break;
                 }
+                break;
             }
         }
-        interfacing.flush();
-        String prompt = "You have marked on your grid, this is the current marking on this location: ";
-        interfacing.uiLine(prompt);
-        System.out.println(prompt);
-        System.out.println(object.markGridToString());
-        interfacing.readLine("Press [Enter] to continue.",true);
     }
 
     /**
@@ -99,6 +120,11 @@ public class grid {
                 puzzleGrid[i][j].setInt(array[i][j]);
             }
         }
+    }
+
+    public static boolean validatePlacement(coordinate coords){
+        location[][] puzzle = getPuzzleGrid();
+        return puzzle[coords.getVerticalCoordinate()][coords.getHorizontalCoordinate()].getInt() == 0;
     }
 
     /**

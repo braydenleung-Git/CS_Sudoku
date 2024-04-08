@@ -18,17 +18,18 @@ update ui of grid
 introduction logic error/unfinished
 - skipping tutorial is not working properly
 
+prevent correcting the original grid
 
  */
-public class main extends interfacing {
+public class game extends interfacing {
     public static boolean replay = false;
     public static void main(String[] args) {
         do {
-            game();
+            gameProceedure();
         } while (replay);
     }
 
-    private static void game(){
+    private static void gameProceedure(){
         introduction();
         int currentStatus = 0;
         while(currentStatus == 0){

@@ -4,16 +4,17 @@
  * All coordinate defined has to be compliant to the index that the array is set to
  */
 public class coordinate {
-    private int verticalCoordinate;
-    private int horizontalCoordinate;
+    private final int verticalCoordinate;
+    private final int horizontalCoordinate;
 
     /**
      * This is the overload constructor method
      */
+    /*
     public coordinate(){
         verticalCoordinate = 0;
         horizontalCoordinate = 0;
-    }
+    }/*
 
     /**
      * This is the default constructor method for coordinate objects
@@ -32,12 +33,13 @@ public class coordinate {
         return horizontalCoordinate;
     }
 
+    /*
     public void setVerticalCoordinate(int verticalCoordinate){
         this.verticalCoordinate = verticalCoordinate;
     }
     public void setHorizontalCoordinate(int horizontalCoordinate) {
         this.horizontalCoordinate = horizontalCoordinate;
-    }
+    }*/
 
     @Override
     public String toString() {
