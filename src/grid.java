@@ -6,11 +6,11 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class grid {
-    private final int colSize = 9; //column size
-    private final int rowSize = 9; //row size
+    private static final int colSize = 9; //column size
+    private static final int rowSize = 9; //row size
     public final static File map = new File("./src/sudokuMaps.json");
-    location[][] gameGrid = new location[colSize][rowSize];
-    location[][] puzzleGrid = new location[colSize][rowSize];
+    static location[][] gameGrid = new location[colSize][rowSize];
+    static location[][] puzzleGrid = new location[colSize][rowSize];
 
     public grid(){
         for (int i = 0; i < rowSize; i++) {
@@ -26,11 +26,11 @@ public class grid {
      * @param input user input
      * @return interpreted coordinate
      */
-    public coordinate stringToCoordinate(String input){
+    public static coordinate stringToCoordinate(String input){
         return new coordinate(65-input.charAt(0),Character.getNumericValue(input.charAt(1))-1);
     }
 
-    public void setNum(coordinate cords){
+    public static void setNum(coordinate cords){
         int input;
         while(true){
             input = interfacing.readInt("Insert number that you would like to set: ");
@@ -39,6 +39,7 @@ public class grid {
             }
             else{
                 gameGrid[cords.getVerticalCoordinate()][cords.getHorizontalCoordinate()].setInt(input);
+                interfacing.readLine("You have set "+input+ " at "+cords+" [Enter]",true);
                 break;
             }
         }
@@ -83,7 +84,7 @@ public class grid {
      * This method converts an int 2D Array to a location class object grid
      * @param array expected array
      */
-    private void arrayToGrid(int[][] array){
+    private static void arrayToGrid(int[][] array){
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 gameGrid[i][j].setInt(array[i][j]);
@@ -97,7 +98,7 @@ public class grid {
      * Available options: Hard, Medium, Easy, Solved
      * @param difficulty expected difficulty
      */
-    public void difficultySelect(String difficulty){
+    public static void difficultySelect(String difficulty){
         difficultySelect(difficulty,0);
     }
 
@@ -107,7 +108,7 @@ public class grid {
      * @param difficulty expected difficulty
      * @param puzzleID puzzleID
      */
-    public void difficultySelect(String difficulty, int puzzleID){
+    public static void difficultySelect(String difficulty, int puzzleID){
         int[][] output = new int[9][9];
         try {
             JsonNode rootNode = new ObjectMapper().readTree(map);
@@ -148,7 +149,7 @@ public class grid {
         }
     }
 
-    public void printGrid(){
+    public static void printGrid(){
         System.out.print(" ");
         int current;
         for (int i = 1; i <= colSize; i++) {

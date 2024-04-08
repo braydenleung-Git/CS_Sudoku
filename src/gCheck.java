@@ -1,12 +1,15 @@
-import java.util.*;
-
-public class gcheck {
-    public static boolean checkBox(int[][] sgrid){
+public class gCheck {
+    /**
+     *
+     * @param sGrid
+     * @return
+     */
+    private static boolean checkBox(int[][] sGrid){
         int[] box = {1, 2, 3, 4, 5, 6, 7, 8, 9};
         for (int i = 0; i < 3; i ++){
             for (int c = 0; c < 3; c++) {
                 for (int n = 0; n < 9; n++) {
-                    if (sgrid[i][c] == box[n]) {
+                    if (sGrid[i][c] == box[n]) {
                         box[n] = 0;
                     }
                 }
@@ -19,11 +22,17 @@ public class gcheck {
         }
         return true;
     }
-    public static boolean checkColrow(int[] colrow){
+
+    /**
+     *
+     * @param colRow
+     * @return
+     */
+    private static boolean checkColRow(int[] colRow){
         int[] box = {1, 2, 3, 4, 5, 6, 7, 8, 9};
         for (int c = 0; c < 9; c++){
             for (int n = 0; n < 9; n ++){
-                if (colrow[c] == box[n]){
+                if (colRow[c] == box[n]){
                     box[n] = 0;
                 }
             }
@@ -35,7 +44,13 @@ public class gcheck {
         }
         return true;
     }
-    public static boolean parser(location[][] grid){
+
+    /**
+     * This method is used to validate the grid that the user put in
+     * @param grid
+     * @return
+     */
+    public static boolean checkGrid(location[][] grid){
         int[][] ngrid = new int[3][3];
         for (int i = 0; i < 3; i ++){
             for (int c = 0; c < 3; c ++){
@@ -44,7 +59,7 @@ public class gcheck {
                         ngrid[a][b] = grid[(i*3)+a][(c*3)+b].getInt();
                     }
                 }
-                if (checkBox(ngrid) == false) {
+                if (!checkBox(ngrid)) {
                     return false;
                 }
             }
@@ -54,13 +69,13 @@ public class gcheck {
             for (int j = 0; j < 9; j ++){
                 colrow[j] = grid[i][j].getInt();
             }
-            if (checkColrow(colrow) == false){
+            if (!checkColRow(colrow)){
                 return false;
             }
             for (int c = 0; c < 9; c ++){
                 colrow[c] = grid[c][i].getInt();
             }
-            if (checkColrow(colrow) == false){
+            if (!checkColRow(colrow)){
                 return false;
             }
         }

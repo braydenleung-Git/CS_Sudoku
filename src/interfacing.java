@@ -3,79 +3,181 @@ import java.util.Scanner;
 
 public class interfacing {
 
-    public void introduction() {
-        int count = 0;
-        String input = "";
+    static int count = 0;
+    public static void introduction() {
         Scanner s1 = new Scanner(System.in);
-        String in = "";
+        String input = "";
         System.out.println("Hello and welcome to the world of sudoku!");
         if (count > 0) {
-            System.out.println("Do you wish to skip the tutorial?");
-            in = (s1.nextLine()).toUpperCase();
-
-
+            input =readLine("Do you wish to skip the tutorial?",true);
+            flush();
         }
-        if(in.equals("NO") || count < 0){
-            System.out.println("");
-            System.out.println("In this game, there is a 9x9 grid with some numbers already filled in and some that are empty.");
+        if(input.equals("NO") || count < 0){
+            String prompt = "In this game, there is a 9x9 grid with some numbers already filled in and some that are empty.";
+            uiLine(prompt);
+            System.out.println(prompt);
             System.out.println("Your job is to find out what belongs in the empty grids and fill them in!");
             System.out.println("Each 3x3 box should contain all of the numbers from 1-9 with no duplicates.");
             System.out.println("Therefore, if you type a '9' in a box that already contains a '9', you won't be able to complete the grid!");
             System.out.println("Each horizontal and vertical line should also have all numbers from 1-9 with no duplicates.");
-            System.out.println("Use these important info in your play! Have fun in navigating the world of numbers and logic!");
-            System.out.println();
+            prompt = "Use these important info in your play! Have fun in navigating the world of numbers and logic!";
+            System.out.println(prompt);
+            uiLine(prompt);
+            readLine("Press [Enter] to continue");
+            flush();
         }
-        else{
-            System.out.println("");
-            System.out.println("Please select the difficulty: ");
-            System.out.println("Easy --> just right for beginners");
-            System.out.println("Medium --> slightly more challenging");
-            System.out.println("Difficult --> sudoku nightmare :)");
-            System.out.println("");
+        System.out.println();
+        while(true){
+            String prompt = "Easy[E] --> just right for beginners";
+            uiLine(prompt);
+            System.out.println(prompt);
+            System.out.println("Medium[M] --> slightly more challenging");
+            System.out.println("Hard[H] --> sudoku nightmare :)");
+            input = readLine("Please select the difficulty: ",true);
+            if(validateInput(input,false)){
+                switch(input.charAt(0)){
+                    case 'T'://Test the program
+                        int i = 1;
+                        while(i == 1){
+                            input = readLine("Which difficulty?",true);
+                            int puzzleID = readInt("Which puzzle?");
+                            while(puzzleID>3 || puzzleID < 0){
+                                readLine("Invalid input");
+                                puzzleID = readInt("Which puzzle?",true);
+                            }
+                            switch(input.charAt(0)){
+                                case 'E':
+                                    grid.difficultySelect("Easy",puzzleID);
+                                    i = 0;
+                                    break;
+                                case 'M':
+                                    grid.difficultySelect("Medium",puzzleID);
+                                    i = 0;
+                                    break;
+                                case'H':
+                                    grid.difficultySelect("Hard",puzzleID);
+                                    i = 0;
+                                    break;
+                                default:
+                                    readLine("Invalid input [Enter]");
+                            }
+                        }
+                        break;
+                    case'E':
+                        grid.difficultySelect("Easy");
+                        break;
+                    case'M':
+                        grid.difficultySelect("Medium");
+                        break;
+                    case'H':
+                        grid.difficultySelect("Hard");
+                        break;
+                    default:
+                        readLine("Invalid input [Enter]");
+                }
+                break;
+            }
         }
-        input = (s1.nextLine()).toUpperCase();
     }
 
     public void finish() {
-        //input conditions using if statements
         System.out.println("Good job! You solved the sudoku puzzle!");
+    }
+
+    public void round(){
+        while(true){
+            flush();
+            String prompt = "[S]et, [M]ark, [Q]uit, [F]inish ";
+            uiLine(prompt);
+            System.out.println(prompt);
+            String input = readLine("Select one action: ");
+            if(validateInput(input,false)){
+                switch(input.charAt(0)){
+                    case 'S':
+                        while(true){
+                            flush();
+                            grid.printGrid();
+                            input = readLine("Place down the coordinate that you would like to set",true);
+                            if(validateInput(input,true){
+                                grid.setNum(grid.stringToCoordinate(input));
+                                break;
+                            }
+                        }
+
+                        break;
+                    case 'M':
+
+                        break;
+                    case 'Q':
+
+                        break;
+                    case 'F':
+
+                        break;
+                    default:
+                        readLine("Invalid input [Enter]");
+                        break;
+                }
+                break;
+            }
+        }
     }
 
     /**
      * This method takes in an input, and the format of the expected input, and returns whether it is in the correct format or not
-     * This is currently marked as not working, as another solution is available
-     *
      * @param input user input
-     * @param format expected format
+     * @param isCoordinate expected format
      * @return
      */
-    public static boolean validateInput(String input, int format){
-        if (format == 0){
-            if (input.length() > 2){
-                System.out.println("Input is too long");
+    public static boolean validateInput(String input, boolean isCoordinate){
+        if (isCoordinate){
+            if (input.length() != 2){
+                readLine("Input format invalid",true);
                 return false;
             }
-            //CALL THE GETVERT OR GETHOR METHODS
-        }
-        else if (format == 1){
-            char[] expected = {'q', 'r','s','d'};
-            for (int i = 0; i < expected.length; i++) {
-                if (input.charAt(0) == expected[i]){
-                    return true;
-                }
+            /*
+                case 1, incorrect format
+                case 2, out of bound(lower end)
+                case 3, out of bound in the vertical axis(higher end)
+                case 4, out of bound in the horizontal axis(higher end)
+             */
+            if(
+                Character.isDigit(input.charAt(1))
+                || grid.stringToCoordinate(input).getVerticalCoordinate()<0
+                || grid.stringToCoordinate(input).getVerticalCoordinate()>9
+                || grid.stringToCoordinate(input).getHorizontalCoordinate()>9
+            ){
+                readLine("Coordinate is invalid[Enter]",true);
+                return false;
             }
         }
-        return false;
+        else{
+            if(input.length()>1){
+                readLine("Input format invalid",true);
+                return false;
+            }
+        }
+        return true;
     }
 
-    public static String readLine(String prompt) {
+    public static String readLine(String prompt){
+        return readLine(prompt,false);
+    }
+    public static String readLine(String prompt,boolean uiLine){
+        if(uiLine){
+            uiLine(prompt);
+        }
         Scanner obj = new Scanner(System.in);
         System.out.print(prompt);
         return obj.nextLine().toUpperCase();
     }
-    public static int readInt(String prompt) {
+
+    public static int readInt(String prompt){
+        return readInt(prompt,false);
+    }
+    public static int readInt(String prompt,boolean uiLine) {
         while(true){
-            String input = readLine(prompt);
+            String input = readLine(prompt,uiLine);
             try {
                 return Integer.parseInt(input);
             } catch (NumberFormatException ignored){
@@ -83,9 +185,18 @@ public class interfacing {
             }
         }
     }
+
+
     public static void flush() {
         for (int i = 0; i < 50; i++) {
             System.out.println();
         }
+    }
+
+    public static void uiLine(String prompt){
+        for (int i = 0; i < prompt.length(); i++) {
+            System.out.print('═');
+        }
+        System.out.println();
     }
 }

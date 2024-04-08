@@ -1,6 +1,5 @@
 /* Expected order of operations:
        Start menu
-       smth
        flush
        print grid
        action options
@@ -11,9 +10,18 @@
        cycle if not finished
        end menu
        */
-
-public class main {
+public class main extends interfacing {
     public static void main(String[] args) {
+
+        introduction();
+
+
+
+
+
+
+
+
         grid testGrid = new grid();
         testGrid.difficultySelect("Solved",1);
         coordinate testCords = new coordinate(0,0);
@@ -21,14 +29,14 @@ public class main {
         testGrid.setNum(testCords);
         testGrid.printGrid();
         testJsonToGrid();
-        interfacing.flush();
-        if (!gcheck.parser(testGrid.gameGrid)){
+        flush();
+        if (!gCheck.checkGrid(testGrid.gameGrid)){
             System.out.println("Invalid grid");
         }
         else{
             System.out.println("Valid grid");
         }
-        interfacing.validateInput("r", 1);
+        validateInput("r", false);
     }
 
     private static void testJsonToGrid(){

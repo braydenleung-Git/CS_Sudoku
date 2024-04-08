@@ -41,9 +41,6 @@ public class coordinate {
 
     @Override
     public String toString() {
-        return "coordinate{" +
-                "row:" + verticalCoordinate +
-                ", column:" + horizontalCoordinate +
-                '}';
+        return (char)verticalCoordinate+65 + Integer.toString(horizontalCoordinate);
     }
 }
