@@ -21,6 +21,14 @@ public class main {
         testGrid.setNum(testCords);
         testGrid.printGrid();
         testJsonToGrid();
+        interfacing.flush();
+        if (!gcheck.parser(testGrid.gameGrid)){
+            System.out.println("Invalid grid");
+        }
+        else{
+            System.out.println("Valid grid");
+        }
+        interfacing.validateInput("r", 1);
     }
 
     private static void testJsonToGrid(){

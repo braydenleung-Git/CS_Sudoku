@@ -1,0 +1,115 @@
+Index: src/interfacing.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import java.util.Scanner;\n\npublic class interfacing {\n\n\n    /**\n     * This method takes in an input, and the format of the expected input, and returns whether it is in the correct format or not\n     * This is currently marked as not working, as another solution is available\n     *\n     * @param input user input\n     * @param format expected format\n     * @return\n     */\n    private static boolean validateInput(String input, int format){\n        return false;\n    }\n    public static String readLine(String prompt) {\n        Scanner obj = new Scanner(System.in);\n        System.out.print(prompt);\n        return obj.nextLine().toUpperCase();\n    }\n    public static int readInt(String prompt) {\n        while(true){\n            String input = readLine(prompt);\n            try {\n                return Integer.parseInt(input);\n            } catch (NumberFormatException ignored){\n\n            }\n        }\n    }\n    public static void flush() {\n        for (int i = 0; i < 50; i++) {\n            System.out.println();\n        }\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/interfacing.java b/src/interfacing.java
+--- a/src/interfacing.java	
++++ b/src/interfacing.java	
+@@ -12,8 +12,18 @@
+      * @return
+      */
+     private static boolean validateInput(String input, int format){
++        if (format == 0){
++            if (input.length() > 2){
++                System.out.println("Input is too long");
++                return false;
++            }
++        }
++        else{
++
++        }
+         return false;
+     }
++
+     public static String readLine(String prompt) {
+         Scanner obj = new Scanner(System.in);
+         System.out.print(prompt);
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_X\" default=\"true\" project-jdk-name=\"openjdk-22\" project-jdk-type=\"JavaSDK\">\n    <output url=\"file://$PROJECT_DIR$/out\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	
++++ b/.idea/misc.xml	
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" default="true" project-jdk-name="openjdk-22" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="openjdk-22" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"8de6572d-b69c-45ee-b021-e0cffffe6e5b\" name=\"Changes\" comment=\"\">\n      <change afterPath=\"$PROJECT_DIR$/lib/jackson-annotations-2.13.3-sources.jar\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/lib/jackson-databind-2.13.3-sources.jar\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/discord.xml\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/fasterxml_jackson_core.xml\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/fasterxml_jackson_core_databind.xml\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/CS_Sudoku.iml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/CS_Sudoku.iml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/game.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main.java\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"ProjectColorInfo\"><![CDATA[{\n  \"customColor\": \"\",\n  \"associatedIndex\": 7\n}]]></component>\n  <component name=\"ProjectId\" id=\"2egTpGDE49GdSBpyyK5Vbesn2pg\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"Application.main.executor\": \"Run\",\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"kotlin-language-version-configured\": \"true\",\n    \"last_opened_file_path\": \"/home/titus/Downloads\",\n    \"settings.editor.selected.configurable\": \"vcs.Git\"\n  }\n}]]></component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"8de6572d-b69c-45ee-b021-e0cffffe6e5b\" name=\"Changes\" comment=\"\" />\n      <created>1712325405103</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1712325405103</updated>\n    </task>\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n</project>
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -1,16 +1,13 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="AutoImportSettings">
++    <option name="autoReloadType" value="SELECTIVE" />
++  </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="8de6572d-b69c-45ee-b021-e0cffffe6e5b" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/lib/jackson-annotations-2.13.3-sources.jar" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/lib/jackson-databind-2.13.3-sources.jar" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/discord.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/fasterxml_jackson_core.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/fasterxml_jackson_core_databind.xml" beforeDir="false" />
++    <list default="true" id="8de6572d-b69c-45ee-b021-e0cffffe6e5b" name="Changes" comment="finished gcheck and flush methods">
+       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/CS_Sudoku.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CS_Sudoku.iml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/interfacing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/interfacing.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -20,11 +17,14 @@
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+-  <component name="ProjectColorInfo"><![CDATA[{
+-  "customColor": "",
+-  "associatedIndex": 7
+-}]]></component>
++  <component name="ProjectColorInfo">{
++  &quot;customColor&quot;: &quot;&quot;,
++  &quot;associatedIndex&quot;: 7
++}</component>
+   <component name="ProjectId" id="2egTpGDE49GdSBpyyK5Vbesn2pg" />
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
++    <ConfirmationsSetting value="2" id="Add" />
++  </component>
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+@@ -34,6 +34,7 @@
+     "Application.main.executor": "Run",
+     "RunOnceActivity.OpenProjectViewOnStart": "true",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
++    "git-widget-placeholder": "Titus",
+     "kotlin-language-version-configured": "true",
+     "last_opened_file_path": "/home/titus/Downloads",
+     "settings.editor.selected.configurable": "vcs.Git"
+@@ -61,4 +62,8 @@
+       </map>
+     </option>
+   </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="finished gcheck and flush methods" />
++    <option name="LAST_COMMIT_MESSAGE" value="finished gcheck and flush methods" />
++  </component>
+ </project>
+\ No newline at end of file
