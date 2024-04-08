@@ -80,14 +80,11 @@ public class interfacing {
         }
     }
 
-    public void finish() {
-        System.out.println("Good job! You solved the sudoku puzzle!");
-    }
 
-    public void round(){
+    public static void round(){
         while(true){
             flush();
-            String prompt = "[S]et, [M]ark, [Q]uit, [F]inish ";
+            String prompt = "[S]et, [M]ark, [Q]uit, [F]inish, [R]eset ";
             uiLine(prompt);
             System.out.println(prompt);
             String input = readLine("Select one action: ");
@@ -98,7 +95,7 @@ public class interfacing {
                             flush();
                             grid.printGrid();
                             input = readLine("Place down the coordinate that you would like to set",true);
-                            if(validateInput(input,true){
+                            if(validateInput(input,true)){
                                 grid.setNum(grid.stringToCoordinate(input));
                                 break;
                             }
@@ -106,16 +103,72 @@ public class interfacing {
 
                         break;
                     case 'M':
-
+                        while(true){
+                            flush();
+                            grid.printGrid();
+                            input = readLine("Place down the coordinate that you would like to mark",true);
+                            if(validateInput(input,true)){
+                                grid.mark(grid.stringToCoordinate(input));
+                                break;
+                            }
+                        }
                         break;
                     case 'Q':
-
+                        while(true){
+                            flush();
+                            input = readLine("Confirm quit?[Y/N]");
+                            if(validateInput(input,false)){
+                                if(input.charAt(0) == 'Y'){
+                                    break;
+                                }
+                                else if(input.charAt(0) == 'N'){
+                                    round();
+                                }
+                            }
+                        }
                         break;
                     case 'F':
-
+                        flush();
+                        if(gCheck.checkGrid(grid.getGameGrid())){
+                            System.out.println("Good job! You solved the sudoku puzzle!");
+                            boolean exit = false;
+                            do {
+                                input = readLine("Would you like to play again? [Y/N] ", true);
+                                if (validateInput(input, false)) {
+                                    switch (input.charAt(0)) {
+                                        case 'Y':
+                                            main.replay = true;
+                                            exit = true;
+                                            break;
+                                        case 'N':
+                                            main.replay = false;
+                                            exit = true;
+                                            break;
+                                        default:
+                                            readLine("Invalid input. [Enter]");
+                                            break;
+                                    }
+                                }
+                            } while (!exit);
+                        }
                         break;
+                    case 'R':
+                        flush();
+                        input = readLine("Confirm reset?[Y/N]");
+                        while(true) {
+                            if (validateInput(input, false)) {
+                                if (input.charAt(0) == 'Y') {
+                                    grid.resetGrid();
+                                    break;
+                                } else if (input.charAt(0) == 'N') {
+                                    break;
+                                } else {
+                                    input = readLine("Invalid input, Confirm reset? [Y/N] ",true);
+                                }
+                            }
+                        }
                     default:
-                        readLine("Invalid input [Enter]");
+                        readLine("Invalid input. [Enter]");
                         break;
                 }
                 break;
@@ -185,7 +238,6 @@ public class interfacing {
             }
         }
     }
-
 
     public static void flush() {
         for (int i = 0; i < 50; i++) {

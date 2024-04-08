@@ -49,7 +49,7 @@ public class grid {
      * This method is used to mark a specific location on the main grid
      * @param cords The coordinate of the location to be marked
      */
-    public void mark(coordinate cords){
+    public static void mark(coordinate cords){
         location object = gameGrid[cords.getVerticalCoordinate()][cords.getHorizontalCoordinate()];
         coordinate markCoords;
         System.out.println(object.markGridToString());
@@ -135,15 +135,15 @@ public class grid {
         arrayToGrid(output);
     }
     //getting methods
-    public location[][] getGameGrid(){
+    public static location[][] getGameGrid(){
         return gameGrid;
     }
 
-    public location[][] getPuzzleGrid(){
+    public static location[][] getPuzzleGrid(){
         return puzzleGrid;
     }
 
-    public void resetGrid(){
+    public static void resetGrid(){
         for (int i = 0; i < 9; i++) {
             System.arraycopy(puzzleGrid[i],0,gameGrid[i],0,9);
         }
