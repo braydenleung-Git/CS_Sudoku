@@ -20,7 +20,7 @@ public class main {
         testGrid.printGrid();
         testGrid.setNum(testCords);
         testGrid.printGrid();
-
+        testJsonToGrid();
     }
 
     private static void testJsonToGrid(){
