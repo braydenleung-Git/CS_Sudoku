@@ -41,6 +41,6 @@ public class coordinate {
 
     @Override
     public String toString() {
-        return (char)verticalCoordinate+65 + Integer.toString(horizontalCoordinate);
+        return (char)(verticalCoordinate+65) + Integer.toString(horizontalCoordinate+1);
     }
 }

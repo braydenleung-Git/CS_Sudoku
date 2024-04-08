@@ -12,15 +12,6 @@ public class grid {
     static location[][] gameGrid = new location[colSize][rowSize];
     static location[][] puzzleGrid = new location[colSize][rowSize];
 
-    public grid(){
-        for (int i = 0; i < rowSize; i++) {
-            for (int j = 0; j < colSize; j++) {
-                gameGrid[i][j] = new location();
-                puzzleGrid[i][j] = new location();
-            }
-        }
-    }
-
     /**
      * dependency: string input must be valid
      * @param input user input
@@ -52,32 +43,43 @@ public class grid {
     public static void mark(coordinate cords){
         location object = gameGrid[cords.getVerticalCoordinate()][cords.getHorizontalCoordinate()];
         coordinate markCoords;
-        System.out.println(object.markGridToString());
         String input;
         while (true) {
-            input = interfacing.readLine("Location of potential marking[e.g A1]: ");
-            if((65-input.charAt(0)) > 3 || Character.getNumericValue(input.charAt(1)) > 3 ){
-                interfacing.readLine("Invalid input, please try again [Enter]");
+            System.out.println(object.markGridToString());
+            input = interfacing.readLine("Location of potential marking[e.g A1]: ",true);
+            if(interfacing.validateInput(input,true)){
+                if(Character.getNumericValue(input.charAt(1)) > 3||Character.getNumericValue(input.charAt(1))<0){
+                    interfacing.readLine("Input format invalid. [Enter]");
+                    interfacing.flush();
+                }
+                else{
+                    markCoords = stringToCoordinate(input);
+                    break;
+                }
             }
             else{
-                markCoords = stringToCoordinate(input);
-                break;
+                interfacing.flush();
             }
         }
         while (true){
-            input = interfacing.readLine("Insert number that you would like to mark: ");
-            if(Integer.parseInt(input)>9 || Integer.parseInt(input)<0){
-                interfacing.readLine("Invalid input, please try again [Enter]");
-            }
-            else{
-                object.setMarkGrid(markCoords.getVerticalCoordinate(), markCoords.getHorizontalCoordinate(), Integer.parseInt(input));
-                break;
+            input = interfacing.readLine("Insert number that you would like to mark: ",true);
+            if(interfacing.validateInput(input,false)) {
+                if (!Character.isDigit(input.charAt(0)) ||Integer.parseInt(input) > 9 || Integer.parseInt(input) < 0) {
+                    interfacing.readLine("Invalid input, please try again [Enter]");
+                    interfacing.flush();
+                    System.out.println(object.markGridToString());
+                } else {
+                    object.setMarkGrid(markCoords.getVerticalCoordinate(), markCoords.getHorizontalCoordinate(), Integer.parseInt(input));
+                    break;
+                }
             }
         }
-        //flush
-        System.out.println("You have marked on your grid, this is the current marking on this location");
+        interfacing.flush();
+        String prompt = "You have marked on your grid, this is the current marking on this location: ";
+        interfacing.uiLine(prompt);
+        System.out.println(prompt);
         System.out.println(object.markGridToString());
-        interfacing.readLine("[Enter]");
+        interfacing.readLine("Press [Enter] to continue.",true);
     }
 
     /**
@@ -85,6 +87,12 @@ public class grid {
      * @param array expected array
      */
     private static void arrayToGrid(int[][] array){
+        for (int i = 0; i < rowSize; i++) {
+            for (int j = 0; j < colSize; j++) {
+                gameGrid[i][j] = new location();
+                puzzleGrid[i][j] = new location();
+            }
+        }
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 gameGrid[i][j].setInt(array[i][j]);

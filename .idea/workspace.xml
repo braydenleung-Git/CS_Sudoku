@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46a93401-f3bc-445e-a668-0b6565c3497b" name="Changes" comment="">
+    <list default="true" id="46a93401-f3bc-445e-a668-0b6565c3497b" name="Changes" comment="changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coordinate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/coordinate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grid.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/interfacing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/interfacing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/location.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -306,8 +308,8 @@
     <MESSAGE value="code clean up, fully implemented difficultySelect Method" />
     <MESSAGE value="code cleanup, ide update" />
     <MESSAGE value="updated grid.difficultySelect(), now it works properly" />
-    <MESSAGE value="changes" />
     <MESSAGE value="started working on finishing the game" />
-    <option name="LAST_COMMIT_MESSAGE" value="started working on finishing the game" />
+    <MESSAGE value="changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes" />
   </component>
 </project>

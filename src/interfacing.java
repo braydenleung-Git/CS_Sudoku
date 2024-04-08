@@ -3,16 +3,18 @@ import java.util.Scanner;
 
 public class interfacing {
 
-    static int count = 0;
+    static int count = 1;
     public static void introduction() {
         Scanner s1 = new Scanner(System.in);
         String input = "";
+        flush();
         System.out.println("Hello and welcome to the world of sudoku!");
         if (count > 0) {
-            input =readLine("Do you wish to skip the tutorial?",true);
-            flush();
+            input = readLine("Do you wish to skip the tutorial? [Y/N]",true);
+
+            //if user put smth else other than [y or n] it wont loop
         }
-        if(input.equals("NO") || count < 0){
+        if(input.equals("N") || count < 1){
             String prompt = "In this game, there is a 9x9 grid with some numbers already filled in and some that are empty.";
             uiLine(prompt);
             System.out.println(prompt);
@@ -24,10 +26,11 @@ public class interfacing {
             System.out.println(prompt);
             uiLine(prompt);
             readLine("Press [Enter] to continue");
-            flush();
         }
         System.out.println();
-        while(true){
+        int exitStatus = 0;
+        while(exitStatus == 0){
+            flush();
             String prompt = "Easy[E] --> just right for beginners";
             uiLine(prompt);
             System.out.println(prompt);
@@ -62,28 +65,36 @@ public class interfacing {
                                     readLine("Invalid input [Enter]");
                             }
                         }
+                        exitStatus = 1;
                         break;
                     case'E':
                         grid.difficultySelect("Easy");
+                        exitStatus = 1;
                         break;
                     case'M':
                         grid.difficultySelect("Medium");
+                        exitStatus = 1;
                         break;
                     case'H':
                         grid.difficultySelect("Hard");
+                        exitStatus = 1;
                         break;
                     default:
                         readLine("Invalid input [Enter]");
+                        flush();
                 }
-                break;
             }
         }
     }
 
-
-    public static void round(){
+    /**
+     * This method runs every round
+     * @return status of this round (0 = in-game, 1 = finish/exit)
+     */
+    public static int round(){
         while(true){
             flush();
+            grid.printGrid();
             String prompt = "[S]et, [M]ark, [Q]uit, [F]inish, [R]eset ";
             uiLine(prompt);
             System.out.println(prompt);
@@ -94,64 +105,65 @@ public class interfacing {
                         while(true){
                             flush();
                             grid.printGrid();
-                            input = readLine("Place down the coordinate that you would like to set",true);
+                            input = readLine("Place down the coordinate that you would like to set: ",true);
                             if(validateInput(input,true)){
                                 grid.setNum(grid.stringToCoordinate(input));
                                 break;
                             }
                         }
-
-                        break;
+                        return 0;
                     case 'M':
                         while(true){
                             flush();
                             grid.printGrid();
-                            input = readLine("Place down the coordinate that you would like to mark",true);
+                            input = readLine("Place down the coordinate that you would like to mark: ",true);
                             if(validateInput(input,true)){
                                 grid.mark(grid.stringToCoordinate(input));
                                 break;
                             }
                         }
-                        break;
+                        return 0;
                     case 'Q':
                         while(true){
                             flush();
-                            input = readLine("Confirm quit?[Y/N]");
+                            input = readLine("Confirm quit?[Y/N] ");
                             if(validateInput(input,false)){
                                 if(input.charAt(0) == 'Y'){
+                                    main.replay = false;
                                     break;
                                 }
                                 else if(input.charAt(0) == 'N'){
-                                    round();
+                                    return 0;
                                 }
                             }
                         }
-                        break;
+                        return 1;
                     case 'F':
                         flush();
                         if(gCheck.checkGrid(grid.getGameGrid())){
                             System.out.println("Good job! You solved the sudoku puzzle!");
-                            boolean exit = false;
-                            do {
+                            while(true){
                                 input = readLine("Would you like to play again? [Y/N] ", true);
                                 if (validateInput(input, false)) {
                                     switch (input.charAt(0)) {
                                         case 'Y':
                                             main.replay = true;
-                                            exit = true;
                                             break;
                                         case 'N':
                                             main.replay = false;
-                                            exit = true;
-                                            break;
+                                            return 1;
                                         default:
                                             readLine("Invalid input. [Enter]");
                                             break;
                                     }
+                                    break;
                                 }
-                            } while (!exit);
+                            }
                         }
-                        break;
+                        else{
+                            readLine("You sudoku is incomplete/invalid, press [Enter] to continue.");
+                        }
+                        return 0;
                     case 'R':
                         flush();
                         input = readLine("Confirm reset?[Y/N]");
@@ -159,9 +171,11 @@ public class interfacing {
                             if (validateInput(input, false)) {
                                 if (input.charAt(0) == 'Y') {
                                     grid.resetGrid();
-                                    break;
+                                    flush();
+                                    readLine("You have reset your grid. Press [Enter] to continue",true);
+                                    return 0;
                                 } else if (input.charAt(0) == 'N') {
-                                    break;
+                                    return 0;
                                 } else {
                                     input = readLine("Invalid input, Confirm reset? [Y/N] ",true);
                                 }
@@ -169,9 +183,8 @@ public class interfacing {
                         }
                     default:
                         readLine("Invalid input. [Enter]");
-                        break;
+                        return 0;
                 }
-                break;
             }
         }
     }
@@ -185,7 +198,7 @@ public class interfacing {
     public static boolean validateInput(String input, boolean isCoordinate){
         if (isCoordinate){
             if (input.length() != 2){
-                readLine("Input format invalid",true);
+                readLine("Input format invalid. [Enter]",true);
                 return false;
             }
             /*
@@ -195,18 +208,18 @@ public class interfacing {
                 case 4, out of bound in the horizontal axis(higher end)
              */
             if(
-                Character.isDigit(input.charAt(1))
+                !Character.isDigit(input.charAt(1))
                 || grid.stringToCoordinate(input).getVerticalCoordinate()<0
                 || grid.stringToCoordinate(input).getVerticalCoordinate()>9
                 || grid.stringToCoordinate(input).getHorizontalCoordinate()>9
             ){
-                readLine("Coordinate is invalid[Enter]",true);
+                readLine("Coordinate is invalid [Enter]",true);
                 return false;
             }
         }
         else{
-            if(input.length()>1){
-                readLine("Input format invalid",true);
+            if(input.length()!=1){
+                readLine("Input format invalid. [Enter]",true);
                 return false;
             }
         }
