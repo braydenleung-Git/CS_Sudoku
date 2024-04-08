@@ -25,11 +25,11 @@ public class game extends interfacing {
     public static boolean replay = false;
     public static void main(String[] args) {
         do {
-            gameProceedure();
+            gameProcedure();
         } while (replay);
     }
 
-    private static void gameProceedure(){
+    private static void gameProcedure(){
         introduction();
         int currentStatus = 0;
         while(currentStatus == 0){
