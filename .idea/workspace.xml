@@ -8,8 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46a93401-f3bc-445e-a668-0b6565c3497b" name="Changes" comment="fixed issue where when playing again, tutorial option allows any input, instead limited to 2 response">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/interfacing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/interfacing.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +33,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="Brayden" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -94,18 +95,6 @@
       <force-push-target remote-path="origin" branch="Brayden" />
     </force-push-targets>
   </component>
-  <component name="QodanaHighlightedReportService">
-    <option name="localRunNotPublishedPersistedInfo">
-      <LocalReportPersistedInfo>
-        <option name="path" value="/private/var/folders/_n/zlq0qbns60n798ksz2dkxrhm0000gn/T/qodana_output/qodana.sarif.json" />
-        <option name="reportGuid" value="e06a8e5d-53d4-4968-8e11-15e982c0326d" />
-        <option name="reportName" value="CS_Sudoku/qodana/2024-04-08" />
-      </LocalReportPersistedInfo>
-    </option>
-  </component>
-  <component name="QodanaIsSelectedPersistenceService">
-    <option name="selectedOrLoading" value="true" />
-  </component>
   <component name="QodanaReportsService">
     <option name="descriptions">
       <ReportDescription localRun="true" path="/private/var/folders/_n/zlq0qbns60n798ksz2dkxrhm0000gn/T/qodana_output/qodana.sarif.json" reportGuid="e06a8e5d-53d4-4968-8e11-15e982c0326d" reportId="CS_Sudoku/qodana/2024-04-08" />
@@ -121,6 +110,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.game" />
         <item itemvalue="Application.game" />
         <item itemvalue="Application.game" />
         <item itemvalue="Application.game" />
@@ -369,5 +359,31 @@
     <MESSAGE value="renamed game.gameProcedure from gameProceedure to gameProcedure" />
     <MESSAGE value="fixed issue where when playing again, tutorial option allows any input, instead limited to 2 response" />
     <option name="LAST_COMMIT_MESSAGE" value="fixed issue where when playing again, tutorial option allows any input, instead limited to 2 response" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/interfacing.java</url>
+          <line>183</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/interfacing.java</url>
+          <line>215</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/interfacing.java</url>
+          <line>237</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/interfacing.java</url>
+          <line>193</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

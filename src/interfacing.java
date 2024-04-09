@@ -193,6 +193,9 @@ public class interfacing {
                                     input = readLine("Invalid input, Confirm reset? [Y/N] ",true);
                                 }
                             }
+                            else{
+                                input = readLine("Confirm reset?[Y/N]");
+                            }
                         }
                     default:
                         readLine("Invalid input. [Enter]");
