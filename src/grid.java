@@ -18,7 +18,7 @@ public class grid {
      * @return interpreted coordinate
      */
     public static coordinate stringToCoordinate(String input){
-        return new coordinate(65-input.charAt(0),Character.getNumericValue(input.charAt(1))-1);
+        return new coordinate(input.charAt(0)-65,Character.getNumericValue(input.charAt(1))-1);
     }
 
     public static void setNum(coordinate cords){

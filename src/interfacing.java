@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class interfacing {
-    static int count = 0;
+    static int count = 1;
     public static void introduction() {
         String input = "";
         flush();
@@ -209,9 +209,10 @@ public class interfacing {
      * This method takes in an input, and the format of the expected input, and returns whether it is in the correct format or not
      * @param input user input
      * @param isCoordinate expected format
-     * @return
+     * @return wether the input is valid or not
      */
     public static boolean validateInput(String input, boolean isCoordinate){
+        boolean probe;
         if (isCoordinate){
             if (input.length() != 2){
                 readLine("Input format invalid. [Enter]",true);
@@ -223,6 +224,11 @@ public class interfacing {
                 case 3, out of bound in the vertical axis(higher end)
                 case 4, out of bound in the horizontal axis(higher end)
              */
+            probe = !Character.isDigit(input.charAt(1));//false
+            int test = grid.stringToCoordinate(input).getVerticalCoordinate();
+            probe = grid.stringToCoordinate(input).getVerticalCoordinate()<0;//true
+            probe = grid.stringToCoordinate(input).getVerticalCoordinate()>9;//false
+            probe = grid.stringToCoordinate(input).getHorizontalCoordinate()>9;//false
             if(
                 !Character.isDigit(input.charAt(1))
                 || grid.stringToCoordinate(input).getVerticalCoordinate()<0
