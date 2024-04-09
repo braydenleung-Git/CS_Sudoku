@@ -7,11 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46a93401-f3bc-445e-a668-0b6565c3497b" name="Changes" comment="fixed bug 2">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/grid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfacing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/interfacing.java" afterDir="false" />
-    </list>
+    <list default="true" id="46a93401-f3bc-445e-a668-0b6565c3497b" name="Changes" comment="never , ever try to offset a larger number by putting the base infront of the minus sign" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -326,7 +322,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712701547887</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="never , ever try to offset a larger number by putting the base infront of the minus sign">
+      <option name="closed" value="true" />
+      <created>1712702949494</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1712702949494</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -367,52 +371,7 @@
     <MESSAGE value="renamed game.gameProcedure from gameProceedure to gameProcedure" />
     <MESSAGE value="fixed issue where when playing again, tutorial option allows any input, instead limited to 2 response" />
     <MESSAGE value="fixed bug 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed bug 2" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/interfacing.java</url>
-          <line>114</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/interfacing.java</url>
-          <line>237</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/interfacing.java</url>
-          <line>216</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/interfacing.java</url>
-          <line>231</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/interfacing.java</url>
-          <line>230</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/interfacing.java</url>
-          <line>229</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/interfacing.java</url>
-          <line>228</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/interfacing.java</url>
-          <line>226</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="never , ever try to offset a larger number by putting the base infront of the minus sign" />
+    <option name="LAST_COMMIT_MESSAGE" value="never , ever try to offset a larger number by putting the base infront of the minus sign" />
   </component>
 </project>

@@ -212,7 +212,6 @@ public class interfacing {
      * @return wether the input is valid or not
      */
     public static boolean validateInput(String input, boolean isCoordinate){
-        boolean probe;
         if (isCoordinate){
             if (input.length() != 2){
                 readLine("Input format invalid. [Enter]",true);
@@ -224,11 +223,6 @@ public class interfacing {
                 case 3, out of bound in the vertical axis(higher end)
                 case 4, out of bound in the horizontal axis(higher end)
              */
-            probe = !Character.isDigit(input.charAt(1));//false
-            int test = grid.stringToCoordinate(input).getVerticalCoordinate();
-            probe = grid.stringToCoordinate(input).getVerticalCoordinate()<0;//true
-            probe = grid.stringToCoordinate(input).getVerticalCoordinate()>9;//false
-            probe = grid.stringToCoordinate(input).getHorizontalCoordinate()>9;//false
             if(
                 !Character.isDigit(input.charAt(1))
                 || grid.stringToCoordinate(input).getVerticalCoordinate()<0
