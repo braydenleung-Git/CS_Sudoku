@@ -67,6 +67,10 @@ public class interfacing {
                                     grid.difficultySelect("Hard",puzzleID);
                                     i = 0;
                                     break;
+                                case 'S':
+                                    grid.difficultySelect("Solved",puzzleID);
+                                    i = 0;
+                                    break;
                                 default:
                                     readLine("Invalid input [Enter]");
                             }
