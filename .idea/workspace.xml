@@ -7,10 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46a93401-f3bc-445e-a668-0b6565c3497b" name="Changes" comment="never , ever try to offset a larger number by putting the base infront of the minus sign">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfacing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/interfacing.java" afterDir="false" />
-    </list>
+    <list default="true" id="46a93401-f3bc-445e-a668-0b6565c3497b" name="Changes" comment="final polish, done, implemented solved option for test mode" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -334,7 +331,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712702949494</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="final polish, done, implemented solved option for test mode">
+      <option name="closed" value="true" />
+      <created>1712769206190</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1712769206190</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -351,7 +356,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="created location.java and print grind methods" />
     <MESSAGE value="updates.. apparently" />
     <MESSAGE value="updated printGrid(), created coordinate class, mark(),setNum()" />
     <MESSAGE value="updated git ignore" />
@@ -376,6 +380,7 @@
     <MESSAGE value="fixed bug 2" />
     <MESSAGE value="never , ever try to offset a larger number by putting the base infront of the minus sign" />
     <MESSAGE value="code clean up" />
-    <option name="LAST_COMMIT_MESSAGE" value="code clean up" />
+    <MESSAGE value="final polish, done, implemented solved option for test mode" />
+    <option name="LAST_COMMIT_MESSAGE" value="final polish, done, implemented solved option for test mode" />
   </component>
 </project>
