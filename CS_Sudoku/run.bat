@@ -1,4 +1,4 @@
 @echo off
-for %%i in (*.jar) do (
-    java -jar "%%i"
-)
+cd /d "%~dp0"
+java -jar YourJarFile.jar
+pause
