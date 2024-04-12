@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class interfacing {
-    static int count = 1;
+    static int count = 0;
     public static void introduction() {
         String input = "";
         flush();
